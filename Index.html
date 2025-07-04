@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Subdomain Takeover</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      color: #0ff;
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .glitch {
+      font-size: 3rem;
+      position: relative;
+      color: #0ff;
+      animation: flicker 1s infinite alternate;
+      text-shadow: 0 0 5px #0ff, 0 0 10px #00f, 0 0 20px #0ff;
+    }
+
+    .glitch::before,
+    .glitch::after {
+      content: 'Subdomain Takeover by Saju';
+      position: absolute;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      color: #f0f;
+      clip: rect(0, 900px, 0, 0);
+    }
+
+    .glitch::before {
+      animation: glitchTop 2s infinite linear alternate-reverse;
+    }
+
+    .glitch::after {
+      animation: glitchBottom 2s infinite linear alternate-reverse;
+    }
+
+    @keyframes glitchTop {
+      0% {
+        clip: rect(0, 999px, 0, 0);
+      }
+      5% {
+        clip: rect(0, 999px, 30px, 0);
+      }
+      10% {
+        clip: rect(0, 999px, 0, 0);
+      }
+      15% {
+        clip: rect(10px, 999px, 50px, 0);
+      }
+      100% {
+        clip: rect(0, 999px, 0, 0);
+      }
+    }
+
+    @keyframes glitchBottom {
+      0% {
+        clip: rect(0, 999px, 0, 0);
+      }
+      5% {
+        clip: rect(60px, 999px, 90px, 0);
+      }
+      10% {
+        clip: rect(0, 999px, 0, 0);
+      }
+      15% {
+        clip: rect(40px, 999px, 70px, 0);
+      }
+      100% {
+        clip: rect(0, 999px, 0, 0);
+      }
+    }
+
+    @keyframes flicker {
+      0% {
+        opacity: 0.8;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0.9;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="glitch">Subdomain Takeover by Saju</div>
+</body>
+  </html
